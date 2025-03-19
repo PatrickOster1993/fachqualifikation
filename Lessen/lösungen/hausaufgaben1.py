@@ -116,7 +116,7 @@ while check == "y":
         if userinput > 1:
             for i in range(2, userinput):
                 if userinput % i == 0:
-                    pass
+                    break
             else:
                 print("Zusätzlich ist die Zahl eine Primzahl!!")
         print("Möchten Sie noch ein andere Aufgabe machen?")
