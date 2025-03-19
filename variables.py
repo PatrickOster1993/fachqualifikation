@@ -31,3 +31,19 @@ print("Typ:", type(None)) # NONETYPE
 i = 5
 n = 3
 print(id(i) - id(n))
+
+# Variablenbezeichnungen (prozedural)
+test = 3
+my_variable = 5
+
+## Konstanten
+PI = 3.14
+SSH_KEY = "SDLSLFLGLSDGLLG"
+
+# mehrere Variablen in einer Zeile deklarieren
+x, y = 3, 5
+print(f"Mehrere Variablen in 1 Zeile deklariert: {x}, {y}")
+
+# Simple Verwendung für dieses sof. "Ideom".
+x, y = y, x
+print(f"Zahlen vertauscht: {x}, {y}")
