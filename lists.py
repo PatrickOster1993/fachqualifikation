@@ -117,6 +117,22 @@ print(neue_liste)
 neue_liste.remove(10) # Entfernt den Wert aus der Liste
 print(neue_liste)
 
+kopierte_liste = neue_liste.copy() # Kopiert eine Liste
+
 neue_liste.reverse() # Dreht die Liste um
 print(neue_liste)
+
+# Auf das erste und letzte Element der Liste zugreifen
+print(neue_liste[0]) # Erstes Element
+print(neue_liste[-1]) # Auf das Letzte Element der Liste zugreifen
+print(neue_liste[1]) # Auf das zweite Element der Liste zugreifen
+print(neue_liste[-2]) # Auf das vorletzte Element der Liste zugreifen
+
+# Einen Abschnitt der Liste Printen
+teil_liste = neue_liste[1:3]
+print(teil_liste)
+
+# Löschen einer Liste
+print(neue_liste)
+del neue_liste
 
