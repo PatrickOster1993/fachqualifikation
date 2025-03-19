@@ -1,0 +1,136 @@
+# Aufgabe 1
+name = input("Gib deinen Namen ein: ")
+
+age = input("Gib dein Alter ein: ")
+
+food = input("Gib dein Lieblingsessen ein: ")
+
+print(f"Mein Name ist  {name}. Ich bin  {age}  Jahre Alt und mein Lieblingsessen ist {food}.")
+
+
+
+# Aufgabe 2
+
+celsius = float(input("Gib die Temperatur ein:"))
+fahrenheit = 1.8 + celsius + 32
+print(f"{celsius} Grad Celsius entsprechen {fahrenheit} Grad Fahrenheit.")
+
+# Aufgabe 3
+
+a = 0b1101  
+b = 0b1011
+
+bitweise_und = a & b
+bitweise_oder = a | b
+bitweise_xor = a ^ b
+
+ergebnis = bitweise_und % 2 != 0
+
+print(f"Bitweise Und (a & b):")
+print(f"Binär: {bin(bitweise_und)}")
+print(f"Dezimal: {bitweise_und}")
+print(f"Ungrade Zahl: {ergebnis}\n")
+
+print(f"Bitweise Oder ( a | b ):")
+print(f"Binär: {bin(bitweise_oder)}")
+print(f"Dezimal: {bitweise_oder}\n")
+
+print(f"Bitweise Xor( a ^ b):")
+print(f"Binär: {bin(bitweise_xor)}")
+print(f"Dezimal: {bitweise_xor}\n")
+
+# Aufgabe 5 
+
+zahl = int(input("Gib eine Zahl ein: "))
+
+if zahl < 0:
+    print("Die Zahl ist negativ!")
+elif zahl == 0:
+    print(" Die Zahl ist null!")
+elif zahl > 0 and zahl % 2 == 0:   
+    print("Die Zahl ist positiv und gerade!")
+elif zahl > 0 and zahl % 2 != 0:
+    if zahl > 100:
+        print("Die Zahl ist positiv, ungerade und größer als 100!")
+    else: 
+        print("Die Zahl ist positiv und ungerade!")
+
+
+# Aufgabe 7
+
+for i in range(1, 101):
+    if i % 3 == 0 and i % 5 == 0:
+        print("FizzBuzz")
+    elif i % 3 == 0:
+        print("Fizz")
+    elif i % 5 == 0:
+        print("Buzz")
+    else:
+        print(i)
+
+# Aufgabe 8
+
+liste = ["Apfel", "Banane", "Erdbeere", "Orange", "Zitrone"]  
+
+liste.append("Kiwi")
+
+liste.insert(1, "Mango")
+
+liste.pop
+
+if "Banane" in liste:
+    liste.remove("Banane")
+
+liste.reverse()
+
+print("Länge der Liste:", len(liste))
+
+kopie_liste = liste.copy()
+print("Original Liste:", liste, "Speicheradresse", id(liste))
+print("Kopie:", kopie_liste, "Speicheradresse:", id(kopie_liste))
+
+# Aufgabe 9
+
+temperaturen = [ 23, 24, 26, 22, 27, 28, 30]
+
+durchschnitt = sum(temperaturen)/ len(temperaturen)
+print("Durchschnittstemperatur:", durchschnitt, "C")
+
+max_temp = max(temperaturen)
+min_temp = min(temperaturen)
+print("Höchste Temperatur:" , max_temp, "C")
+print("Niedrigste temperatur:", min_temp, "C")
+
+temperaturen = [max(18, temp) for temp in temperaturen]
+temperaturen[0], temperaturen[-1] = temperaturen[-1], temperaturen[0]
+
+print("Modifiziert:", temperaturen)
+
+# Aufgabe 10 
+
+
+aktienkurse = [random.uniform(75, 150) for _ in range(20)]
+
+durchschnitt = sum(aktienkurse) / len(aktienkurse)
+print("Durchschnittlicher Aktienkurs:", round(durchschnitt, 2), "€")
+
+
+max_kurs = max(aktienkurse)
+min_kurs = min(aktienkurse)
+print("Höchster Kurs:", round(max_kurs, 2), "€")
+print("Niedrigster Kurs:", round(min_kurs, 2), "€")
+
+
+steigerungen = sum(1 for i in range(1, len(aktienkurse)) if aktienkurse[i] > aktienkurse[i - 1])
+rueckgaenge = sum(1 for i in range(1, len(aktienkurse)) if aktienkurse[i] < aktienkurse[i - 1])
+print("Tage mit Kurssteigerung:", steigerungen)
+print("Tage mit Kursrückgang:", rueckgaenge)
+
+
+max_anstieg = max((aktienkurse[i] - aktienkurse[i - 1], i) for i in range(1, len(aktienkurse)))
+print("Stärkster Kursanstieg am Tag", max_anstieg[1] + 1, "mit einer Änderung von", round(max_anstieg[0], 2), "€")
+
+
+gesamtaenderung = aktienkurse[-1] - aktienkurse[0]
+print("Gesamter Kursanstieg/-rückgang über den Monat:", round(gesamtaenderung, 2), "€")
+
