@@ -2,9 +2,9 @@ import requests
 import json
 
 # Ersetze hier durch deine echten Zugangsdaten
-app_id = "aaa67a94"
-app_key = "c0e83e72f47e02a0761691ea5939d5b3"
-user_id = "mdhab@outlook.com"
+app_id = ""
+app_key = ""
+user_id = ""
 url = f"https://api.edamam.com/api/recipes/v2?app_id={app_id}&app_key={app_key}"
 
 # Beispiel-Payload: Ein Rezept mit Titel und Zutatenliste
@@ -24,7 +24,7 @@ payload = {
 # Header anpassen und die UserID hinzufügen
 headers = {
     "Content-Type": "application/json",
-    "Edamam-Account-User": "mdhab@outlook.com"
+    "Edamam-Account-User": ""
 }
 
 # Sende die POST-Anfrage
