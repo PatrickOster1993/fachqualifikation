@@ -222,5 +222,18 @@ while check == "y":
         print(f"Maximum Wert ist:  {max(meine_aktien)}")    
         sleep(2)
         print("")
+        print("B: Gebe die Tage steigen / fallen aus:  * if schleife")
+        steigen = 0
+        fallen = 0
+        i = 1
+        for i in meine_aktien:
+            if i > meine_aktien[i-1]:
+                steigen += 1
+            else:
+                fallen +=1
+        print(f"Tage gestiegen ist: {steigen}")
+        print(f"Tage gefallenen ist: {fallen}")
+        sleep(2)
+        print("")
     check2bc()    
 
