@@ -1,0 +1,98 @@
+# Aufgabe 1
+# Ziehen Sie sich nochmals den im heutigen Unterricht geschriebenen Code zu Gemüte und erstellen
+# Sie sich eine Zusammenfassung, welche die wichtigsten, heute behandelten Kerninhalte umfasst.
+
+
+
+# wir haben über den Python Interpreter in VSC gesprochen und mit diesem gearbeitet
+# wir haben uns die Grundlagen mathematischer/Arhitmetischer Operatoren angeschaut
+
++ Addition
+5 + 3 = 8
+
+- Subtraktion
+5 - 3 = 2 
+
+* Multiplikation
+5 * 3 = 15
+
+/ Division
+5 / 3 = 1,67
+
+// ganzzahlige Division
+5 // 3 = 1
+
+% Modulo (Rest)
+5 % 3 = 2
+
+** Potenzierung
+5 ** 3 = 125
+
+
+# wir haben uns die Grundlagen der Vergleichsoperatoren angeschaut
+
+== Gleichheit
+5 == 5 = True
+
+!= Ungleichheit
+5 != 5 = False
+
+< Kleiner als
+5 < 3 = False
+
+> Größer als
+5 > 3 = True
+
+<= kleiner oder gleich
+5 <= 3 = False
+
+>= größer oder gleich
+5 >= 3 = True
+
+# wir haben uns die Grundlagen der logischen Operatoren angeschaut
+# werden für Boolesche Werte (True/False) verwendet
+
+and (Wahr wenn beide Werte True sind)
+or (Wahr wenn ein Wert True ist)
+not (negiert einen Booleschen Wert)
+
+
+
+
+
+# Dann noch die Bitweisen Operatoren
+# diese arbeiten auf Bit-Ebene (0 und 1)
+& (Bitweises UND)  z.B. 5 & 3 (0101 & 0011) = 1 (0001)
+| (Bitweises ODER) obiges Beispiel = 7 (0111)
+^ (Bitweises XOR) obiges Beisopiel = 6 (0110)
+~ (Bitweises NICHT) obiges Beispiel = -6 (Formel => x = -x -1)
+<< (Links-Shift) 5 << 1 (0101 => 1010) = 10
+>> (Rechts-Shift) 5 >> 1 (0101 => 0010) = 2
+
+
+# Und Zuweisungsoperatoren
+
+Operator            Bedeutung	            Beispiel	        Entspricht
++=	                Addition	            x += 3	            x = x + 3
+-=	                Subtraktion	            x -= 2	            x = x - 2
+*=	                Multiplikation	        x *= 5	            x = x * 5
+/=	                Division	            x /= 4	            x = x / 4
+//=	                Ganzzahlige Division    x //= 2	            x = x // 2
+%=	                Modulo	                x %= 3	            x = x % 3
+**=	                Potenzierung	        x **= 2	            x = x ** 2
+
+
+id()
+Gibt die eindeutige Speicheradresse (ID) eines Objekts zurück.
+Diese ID bleibt für ein Objekt während seiner Lebensdauer konstant.
+
+bin()
+Wandelt eine ganze Zahl (int) in eine binäre Zeichenkette um.
+Das Ergebnis hat das Präfix '0b', um die Binärdarstellung zu kennzeichnen.
+
+hex()
+Wandelt eine ganze Zahl (int) in eine hexadezimale Zeichenkette um.
+Das Ergebnis hat das Präfix '0x', um die Hexadezimaldarstellung zu kennzeichnen.
+
+
+Die Funktion type() gibt den Datentyp eines Objekts zurück
