@@ -265,9 +265,9 @@ while check == "y":
         i = 1
         while i < len(meine_aktien):
             if meine_aktien[i] > meine_aktien[x]:
-                steigen += float(meine_aktien[i] - meine_aktien[x])
+                steigen += meine_aktien[i] - meine_aktien[x]
             else:
-                fallen += float(meine_aktien[i] - meine_aktien[x])
+                fallen += meine_aktien[i] - meine_aktien[x]
             i += 1
             x += 1
         print(f"Die gesamte Steigung ist: {steigen}")
