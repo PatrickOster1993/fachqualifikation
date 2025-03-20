@@ -10,5 +10,11 @@ for i in range(len(temperatures)):
         temperatures[i] = 18.5
 print(temperatures)
 
-temperatures[0], temperatures[-1] = temperatures[-1], temperatures[0] # Tuple-Unpacking / Mehrfachzuweisung
+first_temp = temperatures[0]
+last_temp = temperatures[-1]
+
+temperatures[0] = last_temp
+temperatures[-1] = first_temp
+
+# temperatures[0], temperatures[-1] = temperatures[-1], temperatures[0] Python-spezifisch: Tuple-Unpacking / Mehrfachzuweisung
 print(temperatures)
