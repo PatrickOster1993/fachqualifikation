@@ -1,0 +1,24 @@
+#Listen- und Schleifen: Temperaturberechnungen
+
+# Erstellen einer Liste mit Temperaturen für 7 Tage
+temperaturen = [15, 18, 20, 22, 17, 19, 21]
+
+# 2. Durchschnittstemperatur berechnen und ausgeben
+durchschnitt = sum(temperaturen) / len(temperaturen)
+print("Durchschnittstemperatur:", durchschnitt)
+
+# 3. Höchste und niedrigste Temperatur ermitteln und ausgeben
+print("Höchste Temperatur:", max(temperaturen))
+print("Niedrigste Temperatur:", min(temperaturen))
+
+# 4. Alle Temperaturen unter 18°C durch 18 ersetzen
+for index in range(len(temperaturen)):
+    if temperaturen[index] < 18:
+        temperaturen[index] = 18
+
+print("Temperaturen nach Ersetzen:", temperaturen)
+
+# 5. Temperatur des letzten Tages mit der des ersten Tages tauschen
+temperaturen[0], temperaturen[-1] = temperaturen[-1], temperaturen[0]
+
+print("Temperaturen nach Tausch:", temperaturen)

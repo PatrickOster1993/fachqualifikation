@@ -1,0 +1,35 @@
+#Arrays
+#Quelle: https://www.datacamp.com/de/tutorial/python-remove-item-from-list
+#FUNFACT: https://www.reddit.com/r/learnpython/comments/p98v56/i_was_surprised_at_how_slow_listpop_is_and/?tl=de 
+
+
+# Erstellen einer Liste mit fünf Obstsorten
+obst_liste = ["Apfel", "Banane", "Orange", "Traube", "Ananas"]
+
+# 1. "Kiwi" am Ende der Liste hinzufügen
+obst_liste.append("Kiwi")
+
+# 2. "Mango" an zweiter Stelle einfügen (Index 1)
+obst_liste.insert(1, "Mango")
+
+# 3. Das letzte Element der Liste entfernen
+obst_liste.pop()  # Entfernt das letzte Element
+
+# 4. Überprüfen, ob "Banane" in der Liste ist und entfernen
+if "Banane" in obst_liste:
+    obst_liste.remove("Banane")
+
+# 5. Die Reihenfolge der Liste umdrehen
+obst_liste.reverse()
+
+# 6. Länge der Liste ausgeben
+print("Länge der Liste:", len(obst_liste))
+
+# 7. Eine Kopie der Liste erstellen
+obst_liste_kopie = obst_liste.copy()
+
+# Beide Listen und ihre Speicheradressen ausgeben
+print("Original Liste:", obst_liste)
+print("Kopie der Liste:", obst_liste_kopie)
+print("Speicheradresse Original:", id(obst_liste))
+print("Speicheradresse Kopie:", id(obst_liste_kopie))

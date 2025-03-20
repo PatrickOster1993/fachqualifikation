@@ -1,0 +1,16 @@
+a= 0b1101
+b= 0b1011
+
+c= a & b #bitweise und
+d= a | b #bitweise oder
+e= a ^ b #bitweise exklusiv oder
+
+if c%2==0:
+    print ("c ist gerade")
+else:
+    print ("c ist ungerade")
+        
+#dezimal
+print (c, d, e)
+#binär
+print (bin(c), bin(d), bin(e))

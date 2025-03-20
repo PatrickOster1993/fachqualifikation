@@ -1,0 +1,15 @@
+# FizzBuzz-Programm: Zahlen von 1 bis 100 ausgeben
+# Bei Vielfachen von 3 wird "Fizz" ausgegeben,
+# bei Vielfachen von 5 "Buzz",
+# und bei Vielfachen von 3 und 5 "FizzBuzz".
+#Quelle: https://www.w3resource.com/python-exercises/python-conditional-exercise-10.php
+
+for FizzBuzz in range(1, 101):  # Schleife von 1 bis 100
+    if FizzBuzz % 3 == 0 and FizzBuzz % 5 == 0:  # Zahl ist durch 3 und 5 teilbar
+        print("FizzBuzz")
+    elif FizzBuzz % 3 == 0:  # Zahl ist nur durch 3 teilbar
+        print("Fizz")
+    elif FizzBuzz % 5 == 0:  # Zahl ist nur durch 5 teilbar
+        print("Buzz")
+    else:  # Zahl ist weder durch 3 noch durch 5 teilbar
+        print(FizzBuzz)

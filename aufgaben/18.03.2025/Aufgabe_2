@@ -1,0 +1,5 @@
+name = input("Tragen Sie ihren Namen ein: ")
+alter = int(input("Tragen Sie ihr Alter ein (als Zahlen): "))
+essen = input("Tragen Sie ihr Lieblingsessen ein: ")
+
+print(f"Mein Name ist {name}, ich bin {alter} Jahre alt und mein Lieblingsessn ist {essen}.")
