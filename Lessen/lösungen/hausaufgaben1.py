@@ -1,4 +1,5 @@
 from time import sleep
+import random
 
 def check2bc():
     print("Möchten Sie noch ein andere Aufgabe sehen?")
@@ -13,26 +14,38 @@ print("Herzlich Wilkommen bei Mattijn seine Hausaufgaben!!")
 print("Hier ist das komplett Übersicht von Fachquali KW 12.")
 
 while check == "y":
+    print("Aufgaben Dienstag")
+    print()
     print("Aufgabe 1: Dokumentation")
     print("Aufgabe 2: Konsolenausgabe")
     print("Aufgabe 3: Variablen und Operatoren")
     print("Aufgabe 4: Bit-Operatoren")
     print("Aufgabe 5: if-Bedingungen")
+    print()
+    print("Aufgaben Mittwoch")
+    print()
     print("Aufgabe 6: if-Dokumentation")
     print("Aufgabe 7: Schleifen")
     print("Aufgabe 8: Listen")
     print("Aufgabe 9: Listen und Schleifen")
     print("Aufgabe 10: Bonus * Listen und Schleifen")
+    print()
+    print("Aufgaben Donnerstag")
+    print()
+    print("Aufgabe 11: Dokumentation")
+    print("Aufgabe 12: 2D - Listen")
+    print("Aufgabe 13: Tic-Tac-Toe")
+    print("Aufgabe 14: Registerverwaltung")
     print("")
     print("Welche Aufgabe möchten Sie sehen:")
-    eingabe = input("Geben Sie bitte ein Zahl von 1 bis 10 ein: ")
+    eingabe = input("Geben Sie bitte ein Zahl von 1 bis 14 ein: ")
     int_eingabe = int(eingabe)
     if int_eingabe <= 0:
         print("Die Zahl darf nicht 0 oder negativ sein.")
-    elif int_eingabe > 10:
-        print("Die Zahl darf nicht größer sein als 10.")
+    elif int_eingabe > 14:
+        print("Die Zahl darf nicht größer sein als 14.")
     elif int_eingabe == 1:
-        print("Sehe print.py für die Inline Dokumentation")
+        print("Sehe bitte die Inline Dokumentationen")
         check2bc()
     elif int_eingabe == 2:
         print("Sie haben sich für die Konsolenausgabe entschieden.")
@@ -272,5 +285,34 @@ while check == "y":
             x += 1
         print(f"Die gesamte Steigung ist: {steigen}")
         print(f"Die gesamte Rückgang ist: {fallen}")
+        check2bc()
+    elif int_eingabe == 11:
+        print("Sehe bitte die Inline Dokumentationen")
         check2bc()    
+    elif int_eingabe == 12:
+        print("Sie haben sich für die 2-D Listen entschieden!!")
+        meine_tabelle = [ [], [], [], [] ]
+        for spalte in meine_tabelle:
+            for i in range(4):
+                spalte.append(random.randint(1, 9))
+        print(meine_tabelle)
+        check2bc()
+
+
+
+
+
+
+
+
+
+
+
+
+    elif int_eingabe == 13:
+        print("Sehe print.py für die Inline Dokumentation")
+        check2bc()
+    elif int_eingabe == 14:
+        print("Sehe print.py für die Inline Dokumentation")
+        check2bc()
 
