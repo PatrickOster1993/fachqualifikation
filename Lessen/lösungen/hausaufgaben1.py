@@ -222,18 +222,55 @@ while check == "y":
         print(f"Maximum Wert ist:  {max(meine_aktien)}")    
         sleep(2)
         print("")
-        print("B: Gebe die Tage steigen / fallen aus:  * if schleife")
+        print("C & D: Gebe die Tage wo die Kurs gestiegen oder gefallen ist aus:  * while / if schleife")
         steigen = 0
         fallen = 0
+        x = 0
         i = 1
-        for i in meine_aktien:
-            if i > meine_aktien[i-1]:
+        while i < len(meine_aktien):
+            if meine_aktien[i] > meine_aktien[x]:
                 steigen += 1
             else:
                 fallen +=1
+            i += 1
+            x += 1
         print(f"Tage gestiegen ist: {steigen}")
         print(f"Tage gefallenen ist: {fallen}")
         sleep(2)
         print("")
-    check2bc()    
+        print("Schritt 3: Finde den Tag wo die Kurs am starksten gestiegen ist:  * while / if schleife")
+        steigen = 0
+        meiste = 0
+        m = 0
+        n = 1
+        while n < len(meine_aktien):
+            if meine_aktien[n] > meine_aktien[m]:
+                steigen = meine_aktien[n] - meine_aktien[m]
+                if steigen > meiste:
+                    meiste = steigen
+            m += 1
+            n += 1
+        print(f"Die größte steigung der Kurs ist: {meiste}")
+        sleep(2)
+        print("")
+        print("Schritt 4 - 1: Differenz zwischen Index [0] und [-1] Tage wo die Kurs gestiegen oder gefallen ist aus:  * while / if schleife")
+        differenz = meine_aktien[0] - meine_aktien[-1]
+        print(f"Die differenz zwischen erste und letzten Tag ist: {differenz}")
+        sleep(2)
+        print("")
+        print("Schritt 4 -2: Gebe die gesamte Steigung und gefallen ist aus:  * while / if schleife")
+        steigen = 0
+        fallen = 0
+        x = 0
+        i = 1
+        while i < len(meine_aktien):
+            if meine_aktien[i] > meine_aktien[x]:
+                steigen += float(meine_aktien[i] - meine_aktien[x])
+            else:
+                fallen += float(meine_aktien[i] - meine_aktien[x])
+            i += 1
+            x += 1
+        print(f"Die gesamte Steigung ist: {steigen}")
+        print(f"Die gesamte Rückgang ist: {fallen}")
+        check2bc()    
 
