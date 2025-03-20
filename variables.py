@@ -101,6 +101,27 @@ zahl2 = zahl1 << 1
 print("Zahl 1:", bin(zahl1))
 print("Zahl 2:", bin(zahl2))
 
+# Python-Konvention / -Spezifisches:
+
+## Variablenbezeichnungen (prozedural)
+test = 3
+my_variable = 5
+
+## Konstanten (gibt es nicht wirklich, aber Konvention!)
+PI = 3.14
+SSH_KEY = "SLDFJSLKFJKLSDFJL"
+
+## mehrere Variablen in einer Zeile deklarieren
+
+x, y = 3, 5
+print("Mehrere Variablen in 1 Zeile deklariert:", x, y)
+
+## Simple Verwendung für dieses sog. "Ideom"
+
+x, y = y, x
+print("Zahlen vertauscht:", x, y)
+
+
 
 
 
