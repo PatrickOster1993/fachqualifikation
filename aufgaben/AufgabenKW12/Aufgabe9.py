@@ -23,3 +23,4 @@ first = temp[0]
 temp[0] = last
 temp[len(temp)-1] = first
 
+print(temp)
