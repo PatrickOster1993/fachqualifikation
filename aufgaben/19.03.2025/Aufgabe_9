@@ -1,15 +1,50 @@
+#Alternative mit NumPy Arbeiten
+#oder
+#quelle: https://stackoverflow.com/questions/27009247/find-min-max-and-average-of-a-list
+
 #Listen- und Schleifen: Temperaturberechnungen
 
 # Erstellen einer Liste mit Temperaturen für 7 Tage
 temperaturen = [15, 18, 20, 22, 17, 19, 21]
 
-# 2. Durchschnittstemperatur berechnen und ausgeben
-durchschnitt = sum(temperaturen) / len(temperaturen)
-print("Durchschnittstemperatur:", durchschnitt)
+#2
+### 2. Deine Ergebnis Roy "Durchschnittstemperatur berechnen und ausgeben" 
+### durchschnitt = sum(temperaturen) / len(temperaturen)
+### print("Durchschnittstemperatur:", durchschnitt)
 
-# 3. Höchste und niedrigste Temperatur ermitteln und ausgeben
+#2. Richtiger Weg für die Prüfung (Dein Rechen Weg Roy geht auch aber du musst auflisten was Sum und Len sind)
+#2. !!! Für die Prüfung muss man mit schleifen in einer Liste arbeiten können das ist wichtig!!!!
+sum = 0 
+len = 0
+
+for temp  in temperaturen:
+    temp_len += 1 
+    temp_sum += temp 
+    durchschnitt = temp_sum / temp_len
+
+print("Länge der Liste: ", temp_len)
+print("Summe der Liste: ", temp_sum)
+print("Durchschnittstemperatur der Liste: ", durchschnitt )
+
+
+
+
+#3. Höchste und niedrigste Temperatur ermitteln und ausgeben
 print("Höchste Temperatur:", max(temperaturen))
 print("Niedrigste Temperatur:", min(temperaturen))
+#3. Alternative Schriebweise
+print("Max Temp: ", max(temperaturen), "Min Temp: ", min(temperaturen))
+#3. Richtige Schreibweise für Prüfung
+
+min_temp = temperaturen[0]
+max_temp = temperaturen[0]
+
+for temp in temperaturen:
+    if temp < min_temp:
+        min_temp = temp
+    elif temp  > max_temp:
+        max_temp = temp
+
 
 # 4. Alle Temperaturen unter 18°C durch 18 ersetzen
 for index in range(len(temperaturen)):
@@ -18,7 +53,21 @@ for index in range(len(temperaturen)):
 
 print("Temperaturen nach Ersetzen:", temperaturen)
 
-# 5. Temperatur des letzten Tages mit der des ersten Tages tauschen
-temperaturen[0], temperaturen[-1] = temperaturen[-1], temperaturen[0]
+while i < temp_len:
+    temp = temperaturen[i]
+    i +=1
 
-print("Temperaturen nach Tausch:", temperaturen)
+#5. Temperatur des letzten Tages mit der des ersten Tages tauschen
+# temperaturen[0], temperaturen[-1] = temperaturen[-1], temperaturen[0]
+#print("Temperaturen nach Tausch:", temperaturen)
+
+#5 Richtig für Prüfung
+first_temp = temperaturen[0]
+last_temp = temperaturen[temp_len  -1]
+
+temperaturen[0] = last_temp
+temperaturen[temp_len -1] = first_temp
+
+print("Temperaturen vertauscht: ", temperaturen)
+
+

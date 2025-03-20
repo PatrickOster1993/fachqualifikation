@@ -1,0 +1,18 @@
+import random
+
+# Kursdaten erstellen
+#kurse = [random.uniform(75, 150) for _ in range(20)]
+#print(kurse)
+
+
+kurse = [0]
+#for _ in range(20):
+#    kurse.append(random.randint(75, 150))
+
+while i < 20:
+    kurse.append(random.randint(75, 150))
+    i += 1
+
+print(kurse)
+
+
