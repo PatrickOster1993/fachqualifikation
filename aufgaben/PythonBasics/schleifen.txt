@@ -1,0 +1,119 @@
+
+# Schleifen
+
+# Befehl	            Bedeutung
+# for	                Iteriert über eine Sequenz (Liste, String, etc.)
+# while	            Wiederholt Code, solange eine Bedingung erfüllt ist
+# range               (start, stop, step)	Erzeugt eine Zahlenfolge für for-Schleifen
+# break	            Beendet die Schleife sofort
+# continue	        Springt zur nächsten Iteration
+# else                nach Schleife	Wird ausgeführt, wenn die Schleife nicht durch break beendet wurde
+# enumerate()	        Gibt Index und Wert in einer for-Schleife zurück
+# zip()	            Kombiniert mehrere Listen und iteriert gleichzeitig darüber
+# reversed()	        Durchläuft eine Sequenz rückwärts
+# List Comprehension	Kompakte Möglichkeit, Listen zu erstellen
+
+
+# 1. for-Schleife (iterative Schleife)
+# Die for-Schleife wird verwendet, um über iterierbare Objekte wie Listen, Tupel, Strings oder Dictionaries zu laufen.
+
+numbers = [1, 2, 3, 4, 5]
+
+for num in numbers:
+    print(num)
+
+word = "Python"
+
+for char in word:
+    print(char)
+
+
+# 2. while-Schleife (bedingte Schleife)
+# Die while-Schleife wird so lange ausgeführt, bis eine bestimmte Bedingung False wird.
+
+x = 0
+while x < 5:
+    print(x)
+    x += 1
+
+# 3. range() (Zahlenbereiche in Schleifen)
+# Die Funktion range(start, stop, step) erzeugt eine Sequenz von Zahlen und wird oft in for-Schleifen verwendet.
+
+for i in range(5):
+    print(i)  # Gibt 0, 1, 2, 3, 4 aus
+
+for i in range(2, 6):
+    print(i)  # Gibt 2, 3, 4, 5 aus
+
+for i in range(0, 10, 2):
+    print(i)  # Gibt 0, 2, 4, 6, 8 aus
+
+for i in range(10, 0, -2):
+    print(i)  # Gibt 10, 8, 6, 4, 2 aus
+
+# 4. break (Schleife vorzeitig beenden)
+# Mit break kann eine Schleife vorzeitig abgebrochen werden.
+
+x = 0
+while x < 10:
+    if x == 5:
+        break  # Beendet die Schleife, wenn x == 5
+    print(x)
+    x += 1
+
+for num in range(10):
+    if num == 5:
+        break  # Beendet die Schleife, wenn num == 5
+    print(num)
+
+
+# 5. continue (Nächste Iteration überspringen)
+# Mit continue wird die aktuelle Iteration übersprungen, und die Schleife fährt mit der nächsten fort.
+
+for num in range(5):
+    if num == 2:
+        continue  # Springt zur nächsten Iteration, wenn num == 2
+    print(num)
+
+# 6. else nach einer Schleife
+# Die else-Klausel wird ausgeführt, wenn die Schleife normal beendet wird (d. h. nicht durch break unterbrochen wird).
+
+for num in range(3):
+    print(num)
+else:
+    print("Schleife normal beendet")
+
+# 7. enumerate() (Index und Wert in for-Schleifen)
+# enumerate() gibt sowohl den Index als auch den Wert eines iterierbaren Objekts zurück.
+
+fruits = ["Apfel", "Banane", "Kirsche"]
+
+for index, fruit in enumerate(fruits):
+    print(f"Index {index}: {fruit}")
+
+# 8. zip() (Mehrere Listen gleichzeitig durchlaufen)
+# zip() kombiniert zwei oder mehr Listen und gibt Tupel zurück.
+
+names = ["Alice", "Bob", "Charlie"]
+ages = [25, 30, 35]
+
+for name, age in zip(names, ages):
+    print(f"{name} ist {age} Jahre alt")
+
+# 9. reversed() (Schleife rückwärts)
+# Mit reversed() kann eine Liste oder range() rückwärts durchlaufen werden.
+
+for num in reversed(range(5)):
+    print(num)
+
+# 10. List Comprehensions (Schleifen in einer Zeile)
+# List Comprehensions sind eine kurze, elegante Art, Listen mit Schleifen zu erstellen.
+
+squares = [x ** 2 for x in range(5)]
+print(squares)  # [0, 1, 4, 9, 16]
+
+even_numbers = [x for x in range(10) if x % 2 == 0]
+print(even_numbers)  # [0, 2, 4, 6, 8]
+
+
+#######################################################################################

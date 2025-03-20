@@ -1,0 +1,113 @@
+erstell mir die wichtigsten befehle der numpy libary in python
+
+ChatGPT:
+Hier sind die wichtigsten NumPy-Befehle in Python, unterteilt nach Kategorien:
+
+🔹 1. NumPy importieren & Arrays erstellen
+
+import numpy as np
+
+# 1D-Array erstellen
+arr = np.array([1, 2, 3, 4, 5])
+
+# 2D-Array (Matrix) erstellen
+matrix = np.array([[1, 2, 3], [4, 5, 6]])
+
+# Array mit Nullen
+zeros = np.zeros((3, 3))
+
+# Array mit Einsen
+ones = np.ones((2, 4))
+
+# Leeres Array (nicht initialisiert)
+empty_arr = np.empty((2, 3))
+
+# Zahlenreihe mit np.arange(start, stop, step)
+range_arr = np.arange(0, 10, 2)
+
+# Gleichmäßig verteilte Werte mit np.linspace(start, stop, Anzahl)
+linspace_arr = np.linspace(0, 1, 5)
+
+# Zufallszahlen erzeugen
+random_arr = np.random.rand(3, 3)  # Gleichverteilte Zufallszahlen [0,1]
+random_ints = np.random.randint(0, 10, (3, 3))  # Ganzzahlen zwischen 0 und 10
+
+🔹 2. Eigenschaften eines Arrays
+
+arr.shape    # Dimensionen des Arrays
+arr.ndim     # Anzahl der Achsen (1D, 2D, 3D)
+arr.size     # Anzahl der Elemente
+arr.dtype    # Datentyp der Elemente
+arr.itemsize # Größe eines Elements in Bytes
+
+🔹 3. Array-Manipulation
+
+# Reshape (Form ändern)
+reshaped = arr.reshape(5, 1)
+
+# Transponieren einer Matrix
+transposed = matrix.T
+
+# Arrays zusammenfügen (axis=0 für Zeilen, axis=1 für Spalten)
+concat_horiz = np.hstack((matrix, matrix))
+concat_vert = np.vstack((matrix, matrix))
+
+# Arrays aufteilen
+split_arr = np.split(matrix, 2, axis=0)
+
+🔹 4. Mathematische Operationen
+
+# Elementweise Operationen
+summe = arr + 10
+produkt = arr * 2
+quadrat = arr ** 2
+
+# Statistische Funktionen
+mean = np.mean(arr)  # Durchschnitt
+std_dev = np.std(arr)  # Standardabweichung
+varianz = np.var(arr)  # Varianz
+summe = np.sum(arr)  # Summe der Elemente
+min_val = np.min(arr)  # Minimum
+max_val = np.max(arr)  # Maximum
+
+# Matrizenoperationen
+dot_product = np.dot(matrix, matrix.T)  # Skalarprodukt
+determinant = np.linalg.det(matrix)  # Determinante
+inverse = np.linalg.inv(matrix)  # Inverse Matrix
+eig_vals, eig_vecs = np.linalg.eig(matrix)  # Eigenwerte und -vektoren
+
+🔹 5. Logische Operationen & Indizierung
+
+# Bedingte Auswahl
+mask = arr > 2  # Gibt ein Bool-Array zurück
+filtered_arr = arr[arr > 2]  # Gibt nur Werte > 2 zurück
+
+# Indexing & Slicing
+wert = arr[0]      # Erstes Element
+subset = arr[1:4]  # Teilarray von Index 1 bis 3
+arr[1:4] = 99      # Werte ändern
+
+🔹 6. Arbeiten mit NaN und Unendlich
+
+arr_with_nan = np.array([1, 2, np.nan, 4])
+
+# Überprüfen auf NaN
+np.isnan(arr_with_nan)
+
+# NaN-Werte ignorieren
+mean_without_nan = np.nanmean(arr_with_nan)
+
+# Überprüfen auf unendliche Werte
+np.isinf(arr_with_nan)
+
+🔹 7. Speichern & Laden von Arrays
+
+# Speichern als Datei
+np.save("array.npy", arr)
+
+# Laden aus Datei
+loaded_arr = np.load("array.npy")
+
+# CSV-Dateien speichern/laden
+np.savetxt("array.csv", arr, delimiter=",")
+loaded_csv = np.loadtxt("array.csv", delimiter=",")

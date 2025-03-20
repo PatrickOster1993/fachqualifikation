@@ -1,0 +1,115 @@
+# Methoden
+
+# 1. Methoden definieren (def)
+# Methoden werden mit def definiert und können Parameter haben.
+
+def greet(name):
+    return f"Hallo, {name}!"
+
+print(greet("Alice"))  # Ausgabe: Hallo, Alice!
+
+# Beispiel: Methode mit Standardwerten
+
+def greet(name="Gast"):
+    return f"Hallo, {name}!"
+
+print(greet())         # Ausgabe: Hallo, Gast!
+print(greet("Bob"))    # Ausgabe: Hallo, Bob!
+
+#####################################################################################
+#Noch nicht gemacht aber wichtig!
+
+# 2. Klassenmethoden (self)
+# In Klassen sind Methoden an Objekte gebunden und benötigen self, um auf Instanzvariablen zuzugreifen.
+
+class Person:
+    def __init__(self, name):
+        self.name = name  # Instanzvariable
+
+    def greet(self):
+        return f"Hallo, mein Name ist {self.name}."
+
+p = Person("Alice")
+print(p.greet())  # Ausgabe: Hallo, mein Name ist Alice.
+
+
+# 3. Statische Methoden (@staticmethod)
+# Statische Methoden sind unabhängig von Instanzvariablen und brauchen kein self.
+
+class MathUtils:
+    @staticmethod
+    def add(a, b):
+        return a + b
+
+print(MathUtils.add(3, 5))  # Ausgabe: 8
+
+
+# 4. Klassenmethoden (@classmethod)
+# Klassenmethoden greifen mit cls auf die Klasse zu.
+class Counter:
+    count = 0  # Klassenvariable
+
+    @classmethod
+    def increment(cls):
+        cls.count += 1
+        return cls.count
+
+print(Counter.increment())  # Ausgabe: 1
+print(Counter.increment())  # Ausgabe: 2
+
+# 5. *args (Variable Anzahl an Argumenten)
+# *args ermöglicht, beliebig viele Argumente als Tupel zu übergeben.
+
+def add_numbers(*args):
+    return sum(args)
+
+print(add_numbers(1, 2, 3, 4))  # Ausgabe: 10
+
+
+# 6. **kwargs (Keyword-Argumente)
+# **kwargs ermöglicht, beliebig viele benannte Argumente als Dictionary zu übergeben.
+def print_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+print_info(name="Alice", age=30, city="Berlin")
+
+
+# 7. Methodenüberladung mit Standardwerten
+# Python unterstützt keine echte Methodenüberladung, aber Standardwerte oder *args/**kwargs können genutzt werden.
+
+def greet(name="Gast", greeting="Hallo"):
+    return f"{greeting}, {name}!"
+
+print(greet())                # Ausgabe: Hallo, Gast!
+print(greet("Alice"))         # Ausgabe: Hallo, Alice!
+print(greet("Bob", "Hi"))     # Ausgabe: Hi, Bob!
+
+
+# 8. Lambda-Funktionen (Anonyme Methoden)
+# Lambda-Funktionen sind kurze, anonyme Methoden, die für einfache Operationen nützlich sind.
+
+add = lambda a, b: a + b
+print(add(3, 5))  # Ausgabe: 8
+
+# Beispiel: Lambda in sorted()
+
+names = ["Alice", "Bob", "Charlie"]
+names.sort(key=lambda name: len(name))
+print(names)  # Ausgabe: ['Bob', 'Alice', 'Charlie']
+
+
+# 9. Rekursive Methoden
+# Eine Methode kann sich selbst aufrufen (Rekursion), z. B. zur Berechnung der Fakultät.
+
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+
+print(factorial(5))  # Ausgabe: 120
+
+
+# 10. Methoden-Dekoratoren
+# Dekoratoren sind Funktionen, die eine Methode modifizieren, ohne sie zu ändern.
+
