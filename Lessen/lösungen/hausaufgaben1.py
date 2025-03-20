@@ -291,27 +291,66 @@ while check == "y":
         check2bc()    
     elif int_eingabe == 12:
         print("Sie haben sich für die 2-D Listen entschieden!!")
+        print("Schritt 1: Gebe 4 Zeilen mit 4 Spalten mit random Zahlen zwischen 1 und 9 aus:")
         meine_tabelle = [ [], [], [], [] ]
         for spalte in meine_tabelle:
             for i in range(4):
                 spalte.append(random.randint(1, 9))
-        print(meine_tabelle)
+        for spalte in meine_tabelle:
+            print(spalte) 
+        sleep(2)
+        print("Schritt 2: Jetzt mit Zwischensumme pro Zeile und Grand Total:")
+        zwischensumme = 0
+        total = 0
+        for spalte in meine_tabelle:
+            for zahl in spalte:
+                zwischensumme = zwischensumme + zahl
+            print(spalte, "Zwischensumme ist:", zwischensumme)
+            total = total + zwischensumme
+            zwischensumme = 0
+            sleep(0.5)
+        print("Grand Total ist:", total)
+        print("Schritt 3: Was ist die hochste Zahl, und was ist seine Indizes:")
+        hochste_zahl = 0
+        zeile_i = []
+        spalte_i = []
+        i = 0
+        j = 0
+        for spalte in meine_tabelle:
+            j = 0
+            for zahl in spalte:
+                if zahl > hochste_zahl:
+                    hochste_zahl = zahl
+                    zeile_i = [i]
+                    spalte_i = [j]
+                elif zahl == hochste_zahl:
+                    zeile_i.append(i)
+                    spalte_i.append(j)
+                j+= 1
+            i += 1  
+        print(f"Die hochste Zahl ist: {hochste_zahl}")
+        print("Bitte von oben nach unten Lesen:")
+        print(f"Die Zeile Index is: {zeile_i}")
+        print(f"Die Spalte Index is: {spalte_i}")
         check2bc()
-
-
-
-
-
-
-
-
-
-
-
-
     elif int_eingabe == 13:
         print("Sehe print.py für die Inline Dokumentation")
         check2bc()
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     elif int_eingabe == 14:
         print("Sehe print.py für die Inline Dokumentation")
         check2bc()
