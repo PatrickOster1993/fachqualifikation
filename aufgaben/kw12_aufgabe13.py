@@ -9,8 +9,8 @@
 
 spielfeld = []
 
-player1 = False     # globaler marker ob ein Spieler seinen Zug schon beendet hat
-player2 = False
+player1_turn = True     # globaler marker ob ein Spieler seinen Zug noch machen muss
+player2_turn = True
 
 def init_spielfeld():
     for _ in range(3):
@@ -72,7 +72,7 @@ def is_feld_belegt(zeilenindex, spaltenindex):
 while True:
     try:
         
-        if player1 == False:        #Prüfung ob Spieler seinen Zug schon gemacht hat
+        if player1_turn:        #Prüfung ob Spieler seinen Zug noch machen muss
             print("Spieler 1 (X) ist am Zug!")
             print("*************************")
 
@@ -90,9 +90,9 @@ while True:
                 print("Spieler 1 (X) gewonnen!")
                 break
 
-            player1 = True      # Weil zug beendet, wird der marker entsprechend angepasst        
+            player1_turn = False      # Weil zug beendet, wird der marker entsprechend angepasst        
 
-        if player2 == False:        #Prüfung ob Spieler seinen Zug schon gemacht hat
+        if player2_turn:        #Prüfung ob Spieler seinen Zug schon gemacht hat
             print("Spieler 2 (0) ist am Zug!")
             print("*************************")
             o_zeilenindex = int(input("Bitte Zeilenindex eingeben: "))
@@ -109,14 +109,14 @@ while True:
                 print("Spieler 2 (O) gewonnen!")
                 break
             
-            player2 == True
+            player2_turn == False
 
         if check_spielfeld_voll():
             print("Unentschieden!")
             break
             
-        player1 == False    # Player wieder auf False, damit nächster zug starten kann
-        player2 == False
+        player1_turn == True    # Player wieder auf False, damit nächster zug starten kann
+        player2_turn == True
 
     except:
         print("Irgendein Fehler aufgetreten!")
