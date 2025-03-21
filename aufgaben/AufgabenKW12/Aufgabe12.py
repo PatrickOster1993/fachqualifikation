@@ -5,20 +5,19 @@
 # 2. Berechnen Sie die Summe aller Zahlen.
 # 3. Finden Sie die größte Zahl in der Liste sowie deren Indizes.
 
-array2d = [
+liste = [
     [4, 5, 1, 6],
     [7, 3, 6, 9],
     [1, 8, 5, 6],
     [4, 7, 3, 2]
 ]
 
-
 maxarray2d = 0
-maxarray= 0
+maxarray = 0
 
-for i in range(len(array2d)):
-    if maxarray < max(array2d[i]):
-        maxarray = max(array2d[i])
+for i in range(len(liste)):
+    if maxarray < max(liste[i]):
+        maxarray = max(liste[i])
     if maxarray > maxarray2d:
         maxarray2d = maxarray
 print(maxarray2d)
