@@ -44,7 +44,7 @@ while check == "y":
     print("Aufgabe 17: Bubblesort & Lineare Suche")
     print("")   
     print("Welche Aufgabe möchten Sie sehen:")
-    eingabe = input("Geben Sie bitte ein Zahl von 1 bis 14 ein: ")
+    eingabe = input("Geben Sie bitte ein Zahl von 1 bis 17 ein: ")
     int_eingabe = int(eingabe)
     if int_eingabe <= 0:
         print("Die Zahl darf nicht 0 oder negativ sein.")
@@ -365,32 +365,46 @@ while check == "y":
         check2bc()
     elif int_eingabe == 17:
         
-        def Sort(liste)
+        def Sort(liste, reverse=False):
             for i in range(len(liste)):
                 for j in range(len(liste) - i - 1):
-                    if liste[j + 1] > liste[j]:
-                        liste[j + 1], liste[j] = liste[j, liste[j + 1]]
-            pass
+                    if (liste[j + 1][1] > liste[j][1]) == reverse:
+                        liste[j + 1], liste[j] = liste[j], liste[j + 1]
+            return liste
+            
 
 
 
         print("Herzlich Wilkommen bei MediumMarkt - Unsere Service ist nicht schlecht, aber richtig gut ist es auch nicht...")
         Products = [["Laptop", 1200], ["Smartphone", 800], ["Tablet", 500], ["Monitor", 300], ["Maus", 50]]
-        print("Hauptmenu" \n  "Sie haben 3 möglichkeiten")
+        print("Hauptmenu")
+        print("Sie haben 3 möglichkeiten:")
         print("Für sortieren wählen sie (1)")
         print("Um ein Product zu suchen wählen sie (2)")
         print("Um ein Product hinzu zu fügen wählen sie (3)")
-        menu = input("Was möchten Sie machen?")
+        menu = input("Was möchten Sie machen? ")
         try:
             int_menu = int(menu)
         except ValueError as e:
             print("Bitte ein Zahl eingeben")
         if int_menu == 1:
-            print("Für sortieren Groß nach Klein wählen sie (1)")
-            print("Für sortieren Klein nach Groß wählen sie (2)")
-            h_oder_r = input("Was möchten Sie machen?")
+            print("Für sortieren von Klein nach GroßGroß nach Klein wählen sie (1)")
+            print("Für sortieren von Groß nach Klein wählen sie (2)")
+            h_oder_r = input("Was möchten Sie machen? ")
             try:
                 int_h_oder_r = int(h_oder_r)
             except ValueError as e:
                 print("Bitte ein Zahl eingeben")
+            if int_h_oder_r == 1:
+                Sort(Products,reverse=False)
+            elif int_h_oder_r == 2:
+                Sort(Products, reverse=True)
+            else:
+                print("Bitte 1 oder 2 auswählen!")
+                print("Die sortierte producten:", Products)
+        if int_menu == 2:
+            print("Welches Produkt suchen Sie:")
+            
+
+            print("Die sortierte producten:", Products)
         check2bc()
