@@ -9,6 +9,9 @@
 
 spielfeld = []
 
+player1 = False     # globaler marker ob ein Spieler seinen Zug schon beendet hat
+player2 = False
+
 def init_spielfeld():
     for _ in range(3):
         zeilen = []
@@ -68,43 +71,53 @@ def is_feld_belegt(zeilenindex, spaltenindex):
 
 while True:
     try:
-        print("Spieler 1 (X) ist am Zug!")
-        print("*************************")
+        
+        if player1 == False:        #Prüfung ob Spieler seinen Zug schon gemacht hat
+            print("Spieler 1 (X) ist am Zug!")
+            print("*************************")
 
-        x_zeilenindex = int(input("Bitte Zeilenindex eingeben: "))
-        x_spaltenindex = int(input("Bitte Spaltenindex eingeben: "))
-    
-        while is_feld_belegt(x_zeilenindex, x_spaltenindex):
-            print("Feld bereits belegt!")
             x_zeilenindex = int(input("Bitte Zeilenindex eingeben: "))
             x_spaltenindex = int(input("Bitte Spaltenindex eingeben: "))
-    
-        update_spielfeld('X', x_zeilenindex, x_spaltenindex)
+        
+            while is_feld_belegt(x_zeilenindex, x_spaltenindex):
+                print("Feld bereits belegt!")
+                x_zeilenindex = int(input("Bitte Zeilenindex eingeben: "))
+                x_spaltenindex = int(input("Bitte Spaltenindex eingeben: "))
+        
+            update_spielfeld('X', x_zeilenindex, x_spaltenindex)
 
-        if check_zeilen_sieg('X') or check_spalten_sieg('X') or check_diagonal_sieg('X'):
-            print("Spieler 1 (X) gewonnen!")
-            break
+            if check_zeilen_sieg('X') or check_spalten_sieg('X') or check_diagonal_sieg('X'):
+                print("Spieler 1 (X) gewonnen!")
+                break
 
-        print("Spieler 2 (0) ist am Zug!")
-        print("*************************")
-        o_zeilenindex = int(input("Bitte Zeilenindex eingeben: "))
-        o_spaltenindex = int(input("Bitte Spaltenindex eingeben: "))
+            player1 = True      # Weil zug beendet, wird der marker entsprechend angepasst        
 
-        while is_feld_belegt(o_zeilenindex, o_spaltenindex):
-            print("Feld bereits belegt!")
+        if player2 == False:        #Prüfung ob Spieler seinen Zug schon gemacht hat
+            print("Spieler 2 (0) ist am Zug!")
+            print("*************************")
             o_zeilenindex = int(input("Bitte Zeilenindex eingeben: "))
             o_spaltenindex = int(input("Bitte Spaltenindex eingeben: "))
-    
-        update_spielfeld('O', o_zeilenindex, o_spaltenindex)
 
-        if check_zeilen_sieg('O') or check_spalten_sieg('O') or check_diagonal_sieg('O'):
-            print("Spieler 2 (O) gewonnen!")
-            break
+            while is_feld_belegt(o_zeilenindex, o_spaltenindex):
+                print("Feld bereits belegt!")
+                o_zeilenindex = int(input("Bitte Zeilenindex eingeben: "))
+                o_spaltenindex = int(input("Bitte Spaltenindex eingeben: "))
+        
+            update_spielfeld('O', o_zeilenindex, o_spaltenindex)
+
+            if check_zeilen_sieg('O') or check_spalten_sieg('O') or check_diagonal_sieg('O'):
+                print("Spieler 2 (O) gewonnen!")
+                break
+            
+            player2 == True
 
         if check_spielfeld_voll():
             print("Unentschieden!")
             break
-    
+            
+        player1 == False    # Player wieder auf False, damit nächster zug starten kann
+        player2 == False
+
     except:
         print("Irgendein Fehler aufgetreten!")
         continue
