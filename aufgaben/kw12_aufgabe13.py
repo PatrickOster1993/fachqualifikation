@@ -56,41 +56,59 @@ def check_spielfeld_voll():
         return True
     return False
 
+def is_feld_belegt(zeilenindex, spaltenindex):
+    if spielfeld[zeilenindex][spaltenindex] != '.':
+        return True
+    return False
+
+# Könnte man noch zusätzlich machen...
+# def eingabe_gueltig(index):
+#     if index < 3 and index >= 0:
+#         return True
+
 while True:
-    print("Spieler 1 (X) ist am Zug!")
-    print("*************************")
-    x_zeilenindex = int(input("Bitte Zeilenindex eingeben: "))
-    x_spaltenindex = int(input("Bitte Spaltenindex eingeben: "))
-    update_spielfeld('X', x_zeilenindex, x_spaltenindex)
+    try:
+        print("Spieler 1 (X) ist am Zug!")
+        print("*************************")
 
-    if check_zeilen_sieg('X') or check_spalten_sieg('X') or check_diagonal_sieg('X'):
-        print("Spieler 1 (X) gewonnen!")
-        break
+        x_zeilenindex = int(input("Bitte Zeilenindex eingeben: "))
+        x_spaltenindex = int(input("Bitte Spaltenindex eingeben: "))
+    
+        while is_feld_belegt(x_zeilenindex, x_spaltenindex):
+            print("Feld bereits belegt!")
+            x_zeilenindex = int(input("Bitte Zeilenindex eingeben: "))
+            x_spaltenindex = int(input("Bitte Spaltenindex eingeben: "))
+    
+        update_spielfeld('X', x_zeilenindex, x_spaltenindex)
 
-    # x x x --> 1. Überprüfungsschritt: ganze Zeile voll [0][n], für 1. Zeile
+        if check_zeilen_sieg('X') or check_spalten_sieg('X') or check_diagonal_sieg('X'):
+            print("Spieler 1 (X) gewonnen!")
+            break
 
-    # x     --> 2. Überprüfungsschritt: ganze Spalte voll [m][0], für 1. Spalte
-    # x
-    # x
+        print("Spieler 2 (0) ist am Zug!")
+        print("*************************")
+        o_zeilenindex = int(input("Bitte Zeilenindex eingeben: "))
+        o_spaltenindex = int(input("Bitte Spaltenindex eingeben: "))
 
-    # x
-    #   x
-    #     x
+        while is_feld_belegt(o_zeilenindex, o_spaltenindex):
+            print("Feld bereits belegt!")
+            o_zeilenindex = int(input("Bitte Zeilenindex eingeben: "))
+            o_spaltenindex = int(input("Bitte Spaltenindex eingeben: "))
+    
+        update_spielfeld('O', o_zeilenindex, o_spaltenindex)
 
-    #     x
-    #   x
-    # x
+        if check_zeilen_sieg('O') or check_spalten_sieg('O') or check_diagonal_sieg('O'):
+            print("Spieler 2 (O) gewonnen!")
+            break
 
-    print("Spieler 2 (0) ist am Zug!")
-    print("*************************")
-    o_zeilenindex = int(input("Bitte Zeilenindex eingeben: "))
-    o_spaltenindex = int(input("Bitte Spaltenindex eingeben: "))
-    update_spielfeld('O', o_zeilenindex, o_spaltenindex)
+        if check_spielfeld_voll():
+            print("Unentschieden!")
+            break
+    
+    except:
+        print("Irgendein Fehler aufgetreten!")
+        continue
 
-    if check_zeilen_sieg('O') or check_spalten_sieg('O') or check_diagonal_sieg('O'):
-        print("Spieler 2 (O) gewonnen!")
-        break
-
-    if check_spielfeld_voll():
-        print("Unentschieden!")
-        break
+# ToDo: State zwischenspeichern, falls Fehler auftritt (Wer ist dran?) --> tipp: globale State-Variable!
+# Refactoring: Sich wiederholender Code in entsprechende Funktionen auslagern
+# Feel free: Anwendung ganz nach eigenem Belieben anpassen / erweitern (gern auch vereinfachte, python-spezifische Syntax)
