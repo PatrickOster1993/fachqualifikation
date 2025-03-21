@@ -37,12 +37,18 @@ while check == "y":
     print("Aufgabe 13: Tic-Tac-Toe")
     print("Aufgabe 14: Registerverwaltung")
     print("")
+    print("Aufgaben Freitag")
+    print()
+    print("Aufgabe 15: Dokumentation")
+    print("Aufgabe 16: Tic-Tac-Toe")
+    print("Aufgabe 17: Bubblesort & Lineare Suche")
+    print("")   
     print("Welche Aufgabe möchten Sie sehen:")
     eingabe = input("Geben Sie bitte ein Zahl von 1 bis 14 ein: ")
     int_eingabe = int(eingabe)
     if int_eingabe <= 0:
         print("Die Zahl darf nicht 0 oder negativ sein.")
-    elif int_eingabe > 14:
+    elif int_eingabe > 17:
         print("Die Zahl darf nicht größer sein als 14.")
     elif int_eingabe == 1:
         print("Sehe bitte die Inline Dokumentationen")
@@ -333,7 +339,7 @@ while check == "y":
         print(f"Die Zeile Index is: {zeile_i}")
         print(f"Die Spalte Index is: {spalte_i}")
         check2bc()
-    elif int_eingabe == 13:
+    elif int_eingabe == 13 or int_eingabe == 16:
         print("Sehe print.py für die Inline Dokumentation")
         check2bc()
     
@@ -354,4 +360,37 @@ while check == "y":
     elif int_eingabe == 14:
         print("Sehe print.py für die Inline Dokumentation")
         check2bc()
+    elif int_eingabe == 15:
+        print("Sehe print.py für die Inline Dokumentation")
+        check2bc()
+    elif int_eingabe == 17:
+        
+        def Sort(liste)
+            for i in range(len(liste)):
+                for j in range(len(liste) - i - 1):
+                    if liste[j + 1] > liste[j]:
+                        liste[j + 1], liste[j] = liste[j, liste[j + 1]]
+            pass
 
+
+
+        print("Herzlich Wilkommen bei MediumMarkt - Unsere Service ist nicht schlecht, aber richtig gut ist es auch nicht...")
+        Products = [["Laptop", 1200], ["Smartphone", 800], ["Tablet", 500], ["Monitor", 300], ["Maus", 50]]
+        print("Hauptmenu" \n  "Sie haben 3 möglichkeiten")
+        print("Für sortieren wählen sie (1)")
+        print("Um ein Product zu suchen wählen sie (2)")
+        print("Um ein Product hinzu zu fügen wählen sie (3)")
+        menu = input("Was möchten Sie machen?")
+        try:
+            int_menu = int(menu)
+        except ValueError as e:
+            print("Bitte ein Zahl eingeben")
+        if int_menu == 1:
+            print("Für sortieren Groß nach Klein wählen sie (1)")
+            print("Für sortieren Klein nach Groß wählen sie (2)")
+            h_oder_r = input("Was möchten Sie machen?")
+            try:
+                int_h_oder_r = int(h_oder_r)
+            except ValueError as e:
+                print("Bitte ein Zahl eingeben")
+        check2bc()
