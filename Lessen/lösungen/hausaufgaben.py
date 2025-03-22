@@ -368,8 +368,13 @@ while check == "y":
         def Sort(liste, reverse=False):
             for i in range(len(liste)):
                 for j in range(len(liste) - i - 1):
+                    count = 0
                     if (liste[j + 1][1] > liste[j][1]) == reverse:
+                        count += 1
                         liste[j + 1], liste[j] = liste[j], liste[j + 1]
+                if count == 0:
+                    print("Liste bereits sortiert!!")
+                    break
             return liste
             
 
@@ -396,15 +401,28 @@ while check == "y":
             except ValueError as e:
                 print("Bitte ein Zahl eingeben")
             if int_h_oder_r == 1:
-                Sort(Products,reverse=False)
+                Sort(Products, reverse=False)
             elif int_h_oder_r == 2:
                 Sort(Products, reverse=True)
             else:
                 print("Bitte 1 oder 2 auswählen!")
                 print("Die sortierte producten:", Products)
+            check2bc()
         if int_menu == 2:
             print("Welches Produkt suchen Sie:")
-            
+            suche = input("Bitte hier Name des Produktes angeben: ")
+            for Product in Products:
+                if suche in Product[0]:
+                    print("Produkt gefunden: ", Product)
+            check2bc()
+        if int_menu == 3:
+            print("Welches Produkt möchten Sie hinzufügen.")
+            neu_produkt = []
+            neu_produkt.append(input("Geben Sie hier den Namen des Produktes ein: "))
+            neu_produkt.append(int(input("Geben Sie hier den Preis des Produktes ein: ")))
+            Products.append(neu_produkt)
+            print("Produkt hinzugefügt:", Products)
+            check2bc()
 
-            print("Die sortierte producten:", Products)
+
         check2bc()
