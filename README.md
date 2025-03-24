@@ -1,5 +1,3 @@
-# fachqualifikation
-Gemeinsames Repository für Fachqualifikation
 # 🚀 Fachqualifikation: Prozedurale Programmierung & OOP mit Python und Vanilla JavaScript
 
 Herzlich willkommen zu unserem GitHub-Repository für die Fachqualifikation! Hier dreht sich alles um prozedurale Programmierung, objektorientierte Programmierung (OOP), sowie den professionellen Einsatz von Versionskontrolle mit Git. 🐍✨
