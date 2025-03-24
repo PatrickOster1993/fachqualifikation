@@ -48,132 +48,179 @@ print ("#################")
 #     [" ", " ", " "]
 #     ]                   # erstellt ein 3x3 array manuell
 
-tictactoe = []
+# tictactoe = []
 
-def tictactoe_erstellen(): # erstellt eine funktion
-    for i in range (3): # geht 3 mal durch
-        inner_tictactoe = [] # erstellt ein leeres array
-        for j in range (3): # geht 3 mal durch
-            inner_tictactoe.append(" ") # fügt ein leeres feld hinzu
-        tictactoe.append(inner_tictactoe) # fügt das array inner_tictactoe zum array tictactoe hinzu
-    return tictactoe # gibt das array tictactoe zurück
+# def tictactoe_erstellen(): # erstellt eine funktion
+#     for i in range (3): # geht 3 mal durch
+#         inner_tictactoe = [] # erstellt ein leeres array
+#         for j in range (3): # geht 3 mal durch
+#             inner_tictactoe.append(" ") # fügt ein leeres feld hinzu
+#         tictactoe.append(inner_tictactoe) # fügt das array inner_tictactoe zum array tictactoe hinzu
+#     return tictactoe # gibt das array tictactoe zurück
 
-tictactoe_erstellen() # erstellt das array tictactoe weil es erst erstellt werden muss
-print (tictactoe) # gibt das array tictactoe aus
+# tictactoe_erstellen() # erstellt das array tictactoe weil es erst erstellt werden muss
+# print (tictactoe) # gibt das array tictactoe aus
 
 
-while True:
+# while True:
     
-    while True:
-        print ("wo willst du das X Setzen?")
-        x = (input("Zeile 1, 2 oder 3: "))
-        if x != "1" and x != "2" and x != "3": # wenn x nicht 1, 2 oder 3 ist
-            print ("Falsche Eingabe") # dann ist die eingabe falsch
-        elif tictactoe[int(x)-1][int(y)-1] != " ": # wenn das feld nicht leer ist
-            print ("Feld ist schon belegt") # dann ist das feld schon belegt
-        else:
-            break
+#     while True:
+#         print ("wo willst du das X Setzen?")
+#         x = (input("Zeile 1, 2 oder 3: "))
+#         if x != "1" and x != "2" and x != "3": # wenn x nicht 1, 2 oder 3 ist
+#             print ("Falsche Eingabe") # dann ist die eingabe falsch
+#         elif tictactoe[int(x)-1][int(y)-1] != " ": # wenn das feld nicht leer ist
+#             print ("Feld ist schon belegt") # dann ist das feld schon belegt
+#         else:
+#             break
 
-    while True:
-        y = (input("Spalte 1, 2 oder 3: "))
-        if y != "1" and y != "2" and y != "3": # wenn y nicht 1, 2 oder 3 ist
-            print ("Falsche Eingabe") # dann ist die eingabe falsch
-        elif tictactoe[int(x)-1][int(y)-1] != " ": # wenn das feld nicht leer ist
-            print ("Feld ist schon belegt") # dann ist das feld schon belegt
-        else:
-            break
+#     while True:
+#         y = (input("Spalte 1, 2 oder 3: "))
+#         if y != "1" and y != "2" and y != "3": # wenn y nicht 1, 2 oder 3 ist
+#             print ("Falsche Eingabe") # dann ist die eingabe falsch
+#         elif tictactoe[int(x)-1][int(y)-1] != " ": # wenn das feld nicht leer ist
+#             print ("Feld ist schon belegt") # dann ist das feld schon belegt
+#         else:
+#             break
 
-    tictactoe[int(x)-1][int(y)-1] = "X" # setzt das X an die gewünschte stelle
+#     tictactoe[int(x)-1][int(y)-1] = "X" # setzt das X an die gewünschte stelle
     
-    for i in range (len(tictactoe)): # geht durch die zeilen
-        arr1 = tictactoe[i] # speichert die zeile in arr1
-        for j in range (len(arr1)): # geht durch die spalten
-            print (arr1[j], end=" ") # gibt die elemente der zeile aus
-        print () # gibt eine neue zeile aus
+#     for i in range (len(tictactoe)): # geht durch die zeilen
+#         arr1 = tictactoe[i] # speichert die zeile in arr1
+#         for j in range (len(arr1)): # geht durch die spalten
+#             print (arr1[j], end=" ") # gibt die elemente der zeile aus
+#         print () # gibt eine neue zeile aus
 
-    if tictactoe[0][0] == "X" and tictactoe[0][1] == "X" and tictactoe[0][2] == "X": # wenn die erste zeile voll ist
-        print ("Du hast gewonnen")
-        break
-    if tictactoe[1][0] == "X" and tictactoe[1][1] == "X" and tictactoe[1][2] == "X": # wenn die zweite zeile voll ist
-        print ("Du hast gewonnen")
-        break
-    if tictactoe[2][0] == "X" and tictactoe[2][1] == "X" and tictactoe[2][2] == "X": # wenn die dritte zeile voll ist
-        print ("Du hast gewonnen")
-        break
-    if tictactoe[0][0] == "X" and tictactoe[1][0] == "X" and tictactoe[2][0] == "X": # wenn die erste spalte voll ist
-        print ("Du hast gewonnen")
-        break
-    if tictactoe[0][1] == "X" and tictactoe[1][1] == "X" and tictactoe[2][1] == "X": # wenn die zweite spalte voll ist
-        print ("Du hast gewonnen")
-        break
-    if tictactoe[0][2] == "X" and tictactoe[1][2] == "X" and tictactoe[2][2] == "X": # wenn die dritte spalte voll ist
-        print ("Du hast gewonnen")
-        break
-    if tictactoe[0][0] == "X" and tictactoe[1][1] == "X" and tictactoe[2][2] == "X": # wenn die erste diagonale voll ist
-        print ("Du hast gewonnen")
-        break
-    if tictactoe[0][2] == "X" and tictactoe[1][1] == "X" and tictactoe[2][0] == "X": # wenn die zweite diagonale voll ist
-        print ("Du hast gewonnen")
-        break
-    if tictactoe[0][0] != " " and tictactoe[0][1] != " " and tictactoe[0][2] != " " and tictactoe[1][0] != " " and tictactoe[1][1] != " " and tictactoe[1][2] != " " and tictactoe[2][0] != " " and tictactoe[2][1] != " " and tictactoe[2][2] != " ":
-        print ("Unentschieden")
-        break
+#     if tictactoe[0][0] == "X" and tictactoe[0][1] == "X" and tictactoe[0][2] == "X": # wenn die erste zeile voll ist
+#         print ("Du hast gewonnen")
+#         break
+#     if tictactoe[1][0] == "X" and tictactoe[1][1] == "X" and tictactoe[1][2] == "X": # wenn die zweite zeile voll ist
+#         print ("Du hast gewonnen")
+#         break
+#     if tictactoe[2][0] == "X" and tictactoe[2][1] == "X" and tictactoe[2][2] == "X": # wenn die dritte zeile voll ist
+#         print ("Du hast gewonnen")
+#         break
+#     if tictactoe[0][0] == "X" and tictactoe[1][0] == "X" and tictactoe[2][0] == "X": # wenn die erste spalte voll ist
+#         print ("Du hast gewonnen")
+#         break
+#     if tictactoe[0][1] == "X" and tictactoe[1][1] == "X" and tictactoe[2][1] == "X": # wenn die zweite spalte voll ist
+#         print ("Du hast gewonnen")
+#         break
+#     if tictactoe[0][2] == "X" and tictactoe[1][2] == "X" and tictactoe[2][2] == "X": # wenn die dritte spalte voll ist
+#         print ("Du hast gewonnen")
+#         break
+#     if tictactoe[0][0] == "X" and tictactoe[1][1] == "X" and tictactoe[2][2] == "X": # wenn die erste diagonale voll ist
+#         print ("Du hast gewonnen")
+#         break
+#     if tictactoe[0][2] == "X" and tictactoe[1][1] == "X" and tictactoe[2][0] == "X": # wenn die zweite diagonale voll ist
+#         print ("Du hast gewonnen")
+#         break
+#     if tictactoe[0][0] != " " and tictactoe[0][1] != " " and tictactoe[0][2] != " " and tictactoe[1][0] != " " and tictactoe[1][1] != " " and tictactoe[1][2] != " " and tictactoe[2][0] != " " and tictactoe[2][1] != " " and tictactoe[2][2] != " ":
+#         print ("Unentschieden")
+#         break
 
-    while True:
-        print ("wo willst du das O Setzen?")
-        x = (input("Zeile 1, 2 oder 3: "))
-        if x != "1" and x != "2" and x != "3": # wenn x nicht 1, 2 oder 3 ist
-            print ("Falsche Eingabe") # dann ist die eingabe falsch
-        elif tictactoe[int(x)-1][int(y)-1] != " ": # wenn das feld nicht leer ist
-            print ("Feld ist schon belegt") # dann ist das feld schon belegt
-        else:
-            break
+#     while True:
+#         print ("wo willst du das O Setzen?")
+#         x = (input("Zeile 1, 2 oder 3: "))
+#         if x != "1" and x != "2" and x != "3": # wenn x nicht 1, 2 oder 3 ist
+#             print ("Falsche Eingabe") # dann ist die eingabe falsch
+#         elif tictactoe[int(x)-1][int(y)-1] != " ": # wenn das feld nicht leer ist
+#             print ("Feld ist schon belegt") # dann ist das feld schon belegt
+#         else:
+#             break
 
-    while True:
-        y = (input("Spalte 1, 2 oder 3: "))
-        if y != "1" and y != "2" and y != "3": # wenn y nicht 1, 2 oder 3 ist
-            print ("Falsche Eingabe") # dann ist die eingabe falsch
-        elif tictactoe[int(x)-1][int(y)-1] != " ": # wenn das feld nicht leer ist
-            print ("Feld ist schon belegt") # dann ist das feld schon belegt
-        else:
-            break
+#     while True:
+#         y = (input("Spalte 1, 2 oder 3: "))
+#         if y != "1" and y != "2" and y != "3": # wenn y nicht 1, 2 oder 3 ist
+#             print ("Falsche Eingabe") # dann ist die eingabe falsch
+#         elif tictactoe[int(x)-1][int(y)-1] != " ": # wenn das feld nicht leer ist
+#             print ("Feld ist schon belegt") # dann ist das feld schon belegt
+#         else:
+#             break
 
-    tictactoe[int(x)-1][int(y)-1] = "O" # setzt das X an die gewünschte stelle
+#     tictactoe[int(x)-1][int(y)-1] = "O" # setzt das X an die gewünschte stelle
     
-    for i in range (len(tictactoe)): # geht durch die zeilen
-        arr1 = tictactoe[i] # speichert die zeile in arr1
-        for j in range (len(arr1)): # geht durch die spalten
-            print (arr1[j], end=" ") # gibt die elemente der zeile aus
-        print () # gibt eine neue zeile aus
+#     for i in range (len(tictactoe)): # geht durch die zeilen
+#         arr1 = tictactoe[i] # speichert die zeile in arr1
+#         for j in range (len(arr1)): # geht durch die spalten
+#             print (arr1[j], end=" ") # gibt die elemente der zeile aus
+#         print () # gibt eine neue zeile aus
 
-    if tictactoe[0][0] == "O" and tictactoe[0][1] == "O" and tictactoe[0][2] == "O": # wenn die erste zeile voll ist
-        print ("Du hast gewonnen")
-        break
-    if tictactoe[1][0] == "O" and tictactoe[1][1] == "O" and tictactoe[1][2] == "O": # wenn die zweite zeile voll ist
-        print ("Du hast gewonnen")
-        break
-    if tictactoe[2][0] == "O" and tictactoe[2][1] == "O" and tictactoe[2][2] == "O": # wenn die dritte zeile voll ist
-        print ("Du hast gewonnen")
-        break
-    if tictactoe[0][0] == "O" and tictactoe[1][0] == "O" and tictactoe[2][0] == "O": # wenn die erste spalte voll ist
-        print ("Du hast gewonnen")
-        break
-    if tictactoe[0][1] == "O" and tictactoe[1][1] == "O" and tictactoe[2][1] == "O": # wenn die zweite spalte voll ist
-        print ("Du hast gewonnen")
-        break
-    if tictactoe[0][2] == "O" and tictactoe[1][2] == "O" and tictactoe[2][2] == "O": # wenn die dritte spalte voll ist
-        print ("Du hast gewonnen")
-        break
-    if tictactoe[0][0] == "O" and tictactoe[1][1] == "O" and tictactoe[2][2] == "O": # wenn die erste diagonale voll ist
-        print ("Du hast gewonnen")
-        break
-    if tictactoe[0][2] == "O" and tictactoe[1][1] == "O" and tictactoe[2][0] == "O": # wenn die zweite diagonale voll ist
-        print ("Du hast gewonnen")
-        break
-    if tictactoe[0][0] != " " and tictactoe[0][1] != " " and tictactoe[0][2] != " " and tictactoe[1][0] != " " and tictactoe[1][1] != " " and tictactoe[1][2] != " " and tictactoe[2][0] != " " and tictactoe[2][1] != " " and tictactoe[2][2] != " ":
-        print ("Unentschieden")
-        break
+#     if tictactoe[0][0] == "O" and tictactoe[0][1] == "O" and tictactoe[0][2] == "O": # wenn die erste zeile voll ist
+#         print ("Du hast gewonnen")
+#         break
+#     if tictactoe[1][0] == "O" and tictactoe[1][1] == "O" and tictactoe[1][2] == "O": # wenn die zweite zeile voll ist
+#         print ("Du hast gewonnen")
+#         break
+#     if tictactoe[2][0] == "O" and tictactoe[2][1] == "O" and tictactoe[2][2] == "O": # wenn die dritte zeile voll ist
+#         print ("Du hast gewonnen")
+#         break
+#     if tictactoe[0][0] == "O" and tictactoe[1][0] == "O" and tictactoe[2][0] == "O": # wenn die erste spalte voll ist
+#         print ("Du hast gewonnen")
+#         break
+#     if tictactoe[0][1] == "O" and tictactoe[1][1] == "O" and tictactoe[2][1] == "O": # wenn die zweite spalte voll ist
+#         print ("Du hast gewonnen")
+#         break
+#     if tictactoe[0][2] == "O" and tictactoe[1][2] == "O" and tictactoe[2][2] == "O": # wenn die dritte spalte voll ist
+#         print ("Du hast gewonnen")
+#         break
+#     if tictactoe[0][0] == "O" and tictactoe[1][1] == "O" and tictactoe[2][2] == "O": # wenn die erste diagonale voll ist
+#         print ("Du hast gewonnen")
+#         break
+#     if tictactoe[0][2] == "O" and tictactoe[1][1] == "O" and tictactoe[2][0] == "O": # wenn die zweite diagonale voll ist
+#         print ("Du hast gewonnen")
+#         break
+#     if tictactoe[0][0] != " " and tictactoe[0][1] != " " and tictactoe[0][2] != " " and tictactoe[1][0] != " " and tictactoe[1][1] != " " and tictactoe[1][2] != " " and tictactoe[2][0] != " " and tictactoe[2][1] != " " and tictactoe[2][2] != " ":
+#         print ("Unentschieden")
+#         break
 
 
 ########### Aufgabe 14 ############
+
+eineliste = []
+
+for i in range (4): # geht 8 mal durch
+    inner_eineliste = [] # erstellt ein leeres array
+    for j in range (8): # geht 4 mal durch
+        inner_eineliste.append(random.randint(0,1)) # fügt ein leeres feld hinzu
+    eineliste.append(inner_eineliste) # fügt das array inner_eineliste zum array eineliste hinzu
+print (eineliste) # gibt das array eineliste aus
+
+print ("in welches register willst du ein bit setzen?")
+
+register = int(input("Register 1, 2, 3 oder 4: ")) # fragt nach dem register
+
+if register == 1: # wenn das register 1 ist
+    eineliste[0][0] = 1 # setzt das erste bit auf 1
+elif register == 2: # wenn das register 2 ist
+    eineliste[1][0] = 1 # setzt das erste bit auf 1
+elif register == 3: # wenn das register 3 ist
+    eineliste[2][0] = 1 # setzt das erste bit auf 1
+elif register == 4: # wenn das register 4 ist
+    eineliste[3][0] = 1 # setzt das erste bit auf 1
+else:
+    print ("Falsche Eingabe") # wenn die eingabe falsch ist
+print (eineliste) # gibt das array eineliste aus
+
+print ("welches register in eine hexadezimale zahl umwandeln?")
+register = int(input("Register 1, 2, 3 oder 4: ")) # fragt nach dem register
+
+if register == 1: # wenn das register 1 ist
+    print (hex(int("".join(map(str, eineliste[0])), 2))) # gibt das erste register in hexadezimal aus
+elif register == 2: # wenn das register 2 ist
+    print (hex(int("".join(map(str, eineliste[1])), 2))) # gibt das zweite register in hexadezimal aus
+elif register == 3: # wenn das register 3 ist
+    print (hex(int("".join(map(str, eineliste[2])), 2))) # gibt das dritte register in hexadezimal aus
+elif register == 4: # wenn das register 4 ist
+    print (hex(int("".join(map(str, eineliste[3])), 2))) # gibt das vierte register in hexadezimal aus
+else:
+    print ("Falsche Eingabe") # wenn die eingabe falsch ist
+
+#Alle register in binär ausgeben
+
+for i in range (len(eineliste)): # geht durch die zeilen
+    arr1 = eineliste[i] # speichert die zeile in arr1
+    for j in range (len(arr1)): # geht durch die spalten
+        print (arr1[j], end=" ") # gibt die elemente der zeile aus
+    print () # gibt eine neue zeile aus
 
