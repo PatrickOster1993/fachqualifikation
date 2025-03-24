@@ -1,5 +1,6 @@
 import requests
 
+uploadSucces = False
 CardID = "Kennzeichennummer des Kartes"
 
 # define the relative path of the sample file
@@ -17,6 +18,6 @@ response = requests.post(target_url, files = {{CardID}: target_file})
 # check the result
 if response.ok:
     print("Upload complete")
-    print(response.text)
+    uploadSucces = True
 else:
     print("Something went wrong")
