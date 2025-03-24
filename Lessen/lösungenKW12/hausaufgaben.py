@@ -10,7 +10,7 @@ def check2bc():
 
 check = "y"
   
-print("Herzlich Wilkommen bei Mattijn seine Hausaufgaben!!")
+print("Herzlich Willkommen bei Mattijn seine Hausaufgaben!!")
 print("Hier ist das komplett Übersicht von Fachquali KW 12.")
 
 while check == "y":
@@ -367,14 +367,14 @@ while check == "y":
         
         def Sort(liste, reverse=False):
             for i in range(len(liste)):
+                count = 0
                 for j in range(len(liste) - i - 1):
-                    count = 0
                     if (liste[j + 1][1] > liste[j][1]) == reverse:
                         count += 1
                         liste[j + 1], liste[j] = liste[j], liste[j + 1]
-                if count == 0:
-                    print("Liste bereits sortiert!!")
-                    break
+                    if count == 0:
+                        print("Liste sortiert!!")
+                        break
             return liste
             
 
