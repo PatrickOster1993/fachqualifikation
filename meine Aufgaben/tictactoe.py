@@ -1,53 +1,3 @@
-########### Aufgabe 12 ############
-import random 
-
-myarray = []
-
-for i in range (4): # geht 4 mal durch
-    inner_myarray = [] # erstellt ein leeres array
-    for j in range (4): # geht 4 mal durch
-        inner_myarray.append(random.randint(1,9)) # fügt eine zufällige zahl zwischen 1 und 9 hinzu
-    myarray.append(inner_myarray) # fügt das array inner_myarray zum array myarray hinzu
-print (myarray)
-
-
-for i in range (len(myarray)): # geht durch die zeilen
-    arr1 = myarray[i] # speichert die zeile in arr1
-    for j in range (len(arr1)): # geht durch die spalten
-        print (arr1[j], end=" ") # gibt die elemente der zeile aus
-    print () # gibt eine neue zeile aus
-
-summe = sum(myarray[0]) + sum(myarray[1]) + sum(myarray[2]) # sum() addiert die elemente eines arrays
-print (summe) 
-
-# nochmal in schöner
-summe = 0
-
-for i in range (len(myarray)): # geht durch die zeilen
-    arr1 = myarray[i] # speichert die zeile in arr1
-    for j in range (len(arr1)): # geht durch die spalten
-        summe += arr1[j] # addiert die elemente der zeile
-print (summe)
-
-grösste_zahl = 0
-
-for i in range (len(myarray)): # geht durch die zeilen
-    arr1 = myarray[i] # speichert die zeile in arr1
-    for j in range (len(arr1)): # geht durch die spalten
-        if grösste_zahl < arr1[j]: # wenn die grösste zahl kleiner als das element ist
-            grösste_zahl = arr1[j] # dann ist das element die grösste zahl
-print (grösste_zahl)
-
-print ("#################")
-
-########### Aufgabe 13 ############
-
-# tictactoe = [
-#     [" ", " ", " "], 
-#     [" ", " ", " "], 
-#     [" ", " ", " "]
-#     ]                   # erstellt ein 3x3 array manuell
-
 tictactoe = []
 
 def tictactoe_erstellen(): # erstellt eine funktion
@@ -61,11 +11,73 @@ def tictactoe_erstellen(): # erstellt eine funktion
 tictactoe_erstellen() # erstellt das array tictactoe weil es erst erstellt werden muss
 print (tictactoe) # gibt das array tictactoe aus
 
+def setzenzeile():
+    while True:
+        print ("wo willst du dein Zeichen Setzen?")
+        zeile = (input("Zeile 1, 2 oder 3: "))
+        if zeile != "1" and zeile != "2" and zeile != "3": # wenn x nicht 1, 2 oder 3 ist
+            print ("Falsche Eingabe") # dann ist die eingabe falsch
+        else:
+            return (zeile)
+
+def setzenspalte():
+    while True:
+        spalte = (input("Spalte 1, 2 oder 3: "))
+        if spalte != "1" and spalte != "2" and spalte != "3": # wenn y nicht 1, 2 oder 3 ist
+            print ("Falsche Eingabe") # dann ist die eingabe falsch
+        else:
+            return (spalte)
+
+def prüfenleer(zeile, spalte):
+    while True:
+        if tictactoe[zeile-1][spalte-1] != " ":
+            print ("Feld ist schon belegt")
+        else:
+            tictactoe[zeile-1][spalte-1] = xoro
+            break
+
+def feld():
+    for i in range (len(tictactoe)): # geht durch die zeilen
+        arr1 = tictactoe[i] # speichert die zeile in arr1
+        for j in range (len(arr1)): # geht durch die spalten
+            print (arr1[j], end=" ") # gibt die elemente der zeile aus
+        print () # gibt eine neue zeile aus
+
+def sieg(gewonnen):
+    if tictactoe[0][0] == xoro and tictactoe[0][1] == xoro and tictactoe[0][2] == xoro:
+        print("Gewonnen")
+        return(gewonnen = True)
+    elif tictactoe[1][0] == xoro and tictactoe[1][1] == xoro and tictactoe[1][2] == xoro:
+        print("Gewonnen")
+        return(gewonnen = True)
+    elif tictactoe[2][0] == xoro and tictactoe[2][1] == xoro and tictactoe[2][2] == xoro:
+        print("Gewonnen")
+        return(gewonnen = True)
+    elif tictactoe[0][0] == xoro and tictactoe[1][0] == xoro and tictactoe[2][0] == xoro:
+        print("Gewonnen")
+        return (gewonnen = True)
+    elif tictactoe[0][1] == xoro and tictactoe[1][1] == xoro and tictactoe[2][1] == xoro:
+        print("Gewonnen")
+        return(gewonnen = True)
+    elif tictactoe[0][2] == xoro and tictactoe[1][2] == xoro and tictactoe[2][2] == xoro:
+        print("Gewonnen")
+        return(gewonnen = True)
+    elif tictactoe[0][0] == xoro and tictactoe[1][1] == xoro and tictactoe[2][2] == xoro: # wenn die erste diagonale voll ist
+        print ("Gewonnen")
+        return(gewonnen = True)
+    elif tictactoe[0][2] == xoro and tictactoe[1][1] == xoro and tictactoe[2][0] == xoro: # wenn die zweite diagonale voll ist
+        print ("Gewonnen")
+        return(gewonnen = True)
+
+    
+
+
+
 
 while True:
     
     while True:
-        print ("wo willst du das X Setzen?")
+        print ("wo willst du dein Zeichen Setzen?")
         x = (input("Zeile 1, 2 oder 3: "))
         if x != "1" and x != "2" and x != "3": # wenn x nicht 1, 2 oder 3 ist
             print ("Falsche Eingabe") # dann ist die eingabe falsch
@@ -173,54 +185,3 @@ while True:
     if tictactoe[0][0] != " " and tictactoe[0][1] != " " and tictactoe[0][2] != " " and tictactoe[1][0] != " " and tictactoe[1][1] != " " and tictactoe[1][2] != " " and tictactoe[2][0] != " " and tictactoe[2][1] != " " and tictactoe[2][2] != " ":
         print ("Unentschieden")
         break
-
-
-########### Aufgabe 14 ############
-
-# eineliste = []
-
-# for i in range (4): # geht 8 mal durch
-#     inner_eineliste = [] # erstellt ein leeres array
-#     for j in range (8): # geht 4 mal durch
-#         inner_eineliste.append(random.randint(0,1)) # fügt ein leeres feld hinzu
-#     eineliste.append(inner_eineliste) # fügt das array inner_eineliste zum array eineliste hinzu
-# print (eineliste) # gibt das array eineliste aus
-
-# print ("in welches register willst du ein bit setzen?")
-
-# register = int(input("Register 1, 2, 3 oder 4: ")) # fragt nach dem register
-
-# if register == 1: # wenn das register 1 ist
-#     eineliste[0][0] = 1 # setzt das erste bit auf 1
-# elif register == 2: # wenn das register 2 ist
-#     eineliste[1][0] = 1 # setzt das erste bit auf 1
-# elif register == 3: # wenn das register 3 ist
-#     eineliste[2][0] = 1 # setzt das erste bit auf 1
-# elif register == 4: # wenn das register 4 ist
-#     eineliste[3][0] = 1 # setzt das erste bit auf 1
-# else:
-#     print ("Falsche Eingabe") # wenn die eingabe falsch ist
-# print (eineliste) # gibt das array eineliste aus
-
-# print ("welches register in eine hexadezimale zahl umwandeln?")
-# register = int(input("Register 1, 2, 3 oder 4: ")) # fragt nach dem register
-
-# if register == 1: # wenn das register 1 ist
-#     print (hex(int("".join(map(str, eineliste[0])), 2))) # gibt das erste register in hexadezimal aus
-# elif register == 2: # wenn das register 2 ist
-#     print (hex(int("".join(map(str, eineliste[1])), 2))) # gibt das zweite register in hexadezimal aus
-# elif register == 3: # wenn das register 3 ist
-#     print (hex(int("".join(map(str, eineliste[2])), 2))) # gibt das dritte register in hexadezimal aus
-# elif register == 4: # wenn das register 4 ist
-#     print (hex(int("".join(map(str, eineliste[3])), 2))) # gibt das vierte register in hexadezimal aus
-# else:
-#     print ("Falsche Eingabe") # wenn die eingabe falsch ist
-
-# #Alle register in binär ausgeben
-
-# for i in range (len(eineliste)): # geht durch die zeilen
-#     arr1 = eineliste[i] # speichert die zeile in arr1
-#     for j in range (len(arr1)): # geht durch die spalten
-#         print (arr1[j], end=" ") # gibt die elemente der zeile aus
-#     print () # gibt eine neue zeile aus
-
