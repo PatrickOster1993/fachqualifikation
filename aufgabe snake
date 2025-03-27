@@ -1,0 +1,67 @@
+import random
+import os
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def create_board(size):
+    return [['.' for _ in range(size)] for _ in range(size)]
+
+def place_food(board, snake):
+    while True:
+        x, y = random.randint(0, 9), random.randint(0, 9)
+        if (x, y) not in snake:
+            return (x, y)
+
+def print_board(board, snake, food):
+    size = len(board)
+    temp_board = [row[:] for row in board]
+    for x, y in snake:
+        temp_board[x][y] = 'S'
+    fx, fy = food
+    temp_board[fx][fy] = 'F'
+    for row in temp_board:
+        print(" ".join(row))
+
+def move_snake(snake, direction):
+    head_x, head_y = snake[0]
+    if direction == 'W':
+        head_x -= 1
+    elif direction == 'S':
+        head_x += 1
+    elif direction == 'A':
+        head_y -= 1
+    elif direction == 'D':
+        head_y += 1
+    return (head_x, head_y)
+
+def snake_game():
+    size = 10
+    board = create_board(size)
+    snake = [(5, 5), (5, 4)]
+    food = place_food(board, snake)
+    
+    while True:
+        clear_screen()
+        print_board(board, snake, food)
+        direction = input("Bewegung (WASD): ").upper()
+        if direction not in ('W', 'A', 'S', 'D'):
+            continue
+        
+        new_head = move_snake(snake, direction)
+        if new_head in snake or not (0 <= new_head[0] < size and 0 <= new_head[1] < size):
+            print("Game Over!")
+            break
+        
+        snake.insert(0, new_head)
+        if new_head == food:
+            food = place_food(board, snake)
+        else:
+            snake.pop()
+        
+        if len(snake) >= 10:
+            print("Gewonnen!")
+            break
+
+if __name__ == "__main__":
+    snake_game()
