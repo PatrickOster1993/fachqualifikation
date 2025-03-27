@@ -1,0 +1,67 @@
+
+FIELD_SIZE = 3
+spielfeld = [['.' for _ in range(FIELD_SIZE)] for _ in range(FIELD_SIZE)]
+player_one_turn = True
+
+
+def print_spielfeld():
+    for zeile in spielfeld:
+        print(" | ".join(zeile))
+    print("-" * 9)
+
+def check_sieg(x_or_o):
+    # Zeilen & Spalten prüfen
+    for i in range(FIELD_SIZE):
+        if all(spielfeld[i][j] == x_or_o for j in range(FIELD_SIZE)) or \
+           all(spielfeld[j][i] == x_or_o for j in range(FIELD_SIZE)):
+            return True
+   
+    if all(spielfeld[i][i] == x_or_o for i in range(FIELD_SIZE)) or \
+       all(spielfeld[i][FIELD_SIZE-1-i] == x_or_o for i in range(FIELD_SIZE)):
+        return True
+    return False
+
+
+def check_spielfeld_voll():
+    return all(spalte != '.' for zeile in spielfeld for spalte in zeile)
+
+def is_feld_belegt(zeilenindex, spaltenindex):
+    return spielfeld[zeilenindex][spaltenindex] != '.'
+
+
+def spieler_zug(spieler_symbol):
+    while True:
+        try:
+            zeilenindex = int(input("Zeile (0-2): "))
+            spaltenindex = int(input("Spalte (0-2): "))
+            if 0 <= zeilenindex < FIELD_SIZE and 0 <= spaltenindex < FIELD_SIZE:
+                if not is_feld_belegt(zeilenindex, spaltenindex):
+                    spielfeld[zeilenindex][spaltenindex] = spieler_symbol
+                    print_spielfeld()
+                    return
+                else:
+                    print("⚠️ Feld ist bereits belegt. Versuch es erneut!")
+            else:
+                print("⚠️ Ungültige Eingabe! Zahlen zwischen 0 und 2 eingeben.")
+        except ValueError:
+            print("⚠️ Bitte eine Zahl eingeben!")
+
+
+print("🎮 Willkommen zu Tic-Tac-Toe!\n")
+print_spielfeld()
+
+while True:
+    spieler_symbol = 'X' if player_one_turn else 'O'
+    print(f"🔹 Spieler {1 if player_one_turn else 2} ({spieler_symbol}) ist am Zug!")
+    
+    spieler_zug(spieler_symbol)
+    
+    if check_sieg(spieler_symbol):
+        print(f"🏆 Spieler {1 if player_one_turn else 2} ({spieler_symbol}) hat gewonnen!")
+        break
+
+    if check_spielfeld_voll():
+        print("🤝 Unentschieden! Das Spielfeld ist voll.")
+        break
+    
+    player_one_turn = not player_one_turn
