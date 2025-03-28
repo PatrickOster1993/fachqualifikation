@@ -1,1 +1,1 @@
-print("Das ist ein Test im Sub-Feature-Branch!")
+print("Das ist ein Test für den Feature-Branch!")
