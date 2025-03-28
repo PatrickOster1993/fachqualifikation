@@ -20,4 +20,3 @@ print(meine_liste)
 
 # Suche starten (Wir wollen den Index des Wertes haben, falls vorhanden!)
 print("Index:", linearesuche(meine_liste, 5))
-print("#####################")
