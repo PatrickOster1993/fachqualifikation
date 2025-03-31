@@ -35,52 +35,44 @@ def init_spielfeld():
     return spielfeld
 
 def setze_schlange(spielfeld, schlange):
-    #                    Kopf   Schwanz
-    # meine_schlange = [[5, 4], [5, 5]]
-    kopf_zeile = schlange[0][0]
-    kopf_spalte = schlange[0][1]
-    schwanz_zeile = schlange[1][0]
-    schwanz_spalte = schlange[1][1]
+    # neuer Code für beliebig viele Glieder der Schlange
+    for koerperteil in schlange:
+        koerperteil_zeile = koerperteil[0]
+        koerperteil_spalte = koerperteil[1]
+        spielfeld[koerperteil_zeile][koerperteil_spalte] = ' S '
 
-    spielfeld[kopf_zeile][kopf_spalte] = ' S '
-    spielfeld[schwanz_zeile][schwanz_spalte] = ' S '
-
-def bewege_schlange(spielfeld, schlange, richtung):
+    # Legacy-Code für 2 Glieder der Schlange (Kopf & Schwanz)
     #                    Kopf   Schwanz
-    # meine_schlange = [[5, 4], [5, 5]]
-    print("Schlange vorher: ", schlange)
-    kopf_zeile = schlange[0][0]
-    kopf_spalte = schlange[0][1]
-    schwanz_zeile = schlange[1][0]
-    schwanz_spalte = schlange[1][1]
+    # meine_schlange = [[5, 4], [5, 5],]
+    # kopf_zeile = schlange[0][0]
+    # kopf_spalte = schlange[0][1]
+    # schwanz_zeile = schlange[1][0]
+    # schwanz_spalte = schlange[1][1]
+
+    # spielfeld[kopf_zeile][kopf_spalte] = ' S '
+    # spielfeld[schwanz_zeile][schwanz_spalte] = ' S '
+
+
+def bewege_schlange(schlange, richtung):
+
+    kopf = schlange[0]
+    neuer_kopf = [kopf[0], kopf[1]]
 
     if richtung == 'w':
-        schlange[0][0] -= 1
+        neuer_kopf[0] -= 1
 
     elif richtung == 's':
-        schlange[0][0] += 1
+        neuer_kopf[0] += 1
 
     elif richtung == 'a':
-        schlange[0][1] -= 1
+        neuer_kopf[1] -= 1
 
     elif richtung == 'd':
-        schlange[0][1] += 1
+        neuer_kopf[1] += 1
 
-    schlange[1][0] = kopf_zeile
-    schlange[1][1] = kopf_spalte
-
-    kopf_zeile_neu = schlange[0][0]
-    kopf_spalte_neu = schlange[0][1]
-    schwanz_zeile_neu = schlange[1][0]
-    schwanz_spalte_neu = schlange[1][1]
-
-    spielfeld[kopf_zeile_neu][kopf_spalte_neu] = ' S '
-    spielfeld[schwanz_zeile_neu][schwanz_spalte_neu] = ' S '
-    spielfeld[schwanz_zeile][schwanz_spalte] = ' . '
-
-    print("Schlange nachher: ", schlange)
-        
-    return {"spielfeld": spielfeld, "schlange": schlange}
+    schlange.insert(0, neuer_kopf)
+    # schlange.pop()
+    return schlange
 
 def essen_erreicht(schlange, essen):
     # Gib True zurück, wenn Indizes von Schlangenkopf == Indizes von essen
@@ -90,42 +82,25 @@ def essen_erreicht(schlange, essen):
     return False
 
 mein_spielfeld = init_spielfeld()
-# print_spielfeld(mein_spielfeld)
-
-meine_schlange = [[5, 4], [5, 5]]
-mein_essen = []
-
-setze_schlange(mein_spielfeld, meine_schlange)
-
-while(True):
-    x = random.randint(0, 9)
-    y = random.randint(0, 9)
-
-    if mein_spielfeld[x][y] is not ' S ':
-        mein_spielfeld[x][y] = ' O '
-        mein_essen.append(x)
-        mein_essen.append(y)
-        break
-
 print_spielfeld(mein_spielfeld)
 
-# Nutzereingaben (= Steuerung der Schlange)
-meine_richtung = input("Bitte Richtung eingeben (wasd): ")
-# w = nach oben bewegen
-# s = nach unten bewegen
-# a = nach links bewegen
-# d = nach rechts bewegen
+print("#############################")
 
-bewegte_schlange = bewege_schlange(mein_spielfeld, meine_schlange, meine_richtung)
-neue_schlange = bewegte_schlange["schlange"]
-neues_spielfeld = bewegte_schlange["spielfeld"]
-setze_schlange(neues_spielfeld, neue_schlange)
+meine_schlange = [[5, 4], [5, 5]]
+setze_schlange(mein_spielfeld, meine_schlange)
+print_spielfeld(mein_spielfeld)
 
-if essen_erreicht(neue_schlange, mein_essen):
-    pass
-    # füge der Schlange ein weiteres Körperteil hinzu...
+print("#############################")
 
-print_spielfeld(neues_spielfeld)
+while True:
+    meine_richtung = input("Bitte Richtung eingeben (WASD): ")
+    meine_neue_schlange = bewege_schlange(meine_schlange, meine_richtung)
+    meine_neue_schlange.pop()
+    setze_schlange(mein_spielfeld, meine_neue_schlange)
+    print_spielfeld(mein_spielfeld)
+    meine_schlange = meine_neue_schlange
+
+
 
 
 
