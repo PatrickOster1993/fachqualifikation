@@ -3,9 +3,9 @@
 
 import random
 
-def linearesuche(liste, wert):
-    for index in range(len(liste)):
-        if liste[index] == wert:
+def linearesuche(list, val):
+    for index in range(len(list)):
+        if list[index] == val:
             return index
     return "Kein Index gefunden!" # z. B. bei Python!
 
