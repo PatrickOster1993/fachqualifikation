@@ -45,3 +45,12 @@ def is_prime(zahl):
 
 if is_prime(zahl):
    print("Zusätzlich ist die Zahl eine Primzahl!")
+
+def is_prime_rekursiv(zahl, i=2):
+   check = zahl%i
+   if i > zahl:
+    return True
+   elif check == 0:
+      return False
+   return is_prime_rekursiv(zahl, i + 1)
+   
